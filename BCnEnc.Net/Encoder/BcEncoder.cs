@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -8,6 +8,7 @@ using BCnEncoder.Encoder.Bptc;
 using BCnEncoder.Encoder.Options;
 using BCnEncoder.Shared;
 using BCnEncoder.Shared.ImageFiles;
+using BCnEncoder.Shared.Polyfills;
 using CommunityToolkit.HighPerformance;
 
 namespace BCnEncoder.Encoder

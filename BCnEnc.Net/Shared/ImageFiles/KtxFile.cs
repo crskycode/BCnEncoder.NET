@@ -1,3 +1,4 @@
+using BCnEncoder.Shared.Polyfills;
 using System;
 using System.Collections.Generic;
 using System.IO;

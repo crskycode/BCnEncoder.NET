@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Text;
 using BCnEncoder.Encoder.Bptc;
 using BCnEncoder.Shared;
+using BCnEncoder.Shared.Polyfills;
 
 namespace BCnEncoder.Encoder
 {
@@ -17,13 +18,13 @@ namespace BCnEncoder.Encoder
 		private static int ComputeIndex4(float texelPos, float endPoint0Pos, float endPoint1Pos)
 		{
 			var r = (texelPos - endPoint0Pos) / (endPoint1Pos - endPoint0Pos);
-			return (int)Math.Clamp(r * 15f /*14.93333f + 0.03333f + 0.5f*/, 0.0f, 15.0f);
+			return (int)MathPolyfills.Clamp(r * 15f /*14.93333f + 0.03333f + 0.5f*/, 0.0f, 15.0f);
 		}
 
 		private static int ComputeIndex3(float texelPos, float endPoint0Pos, float endPoint1Pos)
 		{
 			var r = (texelPos - endPoint0Pos) / (endPoint1Pos - endPoint0Pos);
-			return (int)Math.Clamp(r * 6.98182f + 0.00909f + 0.5f, 0.0f, 7.0f);
+			return (int)MathPolyfills.Clamp(r * 6.98182f + 0.00909f + 0.5f, 0.0f, 7.0f);
 		}
 
 		private static uint F32ToF16(float f32)
@@ -78,7 +79,7 @@ namespace BCnEncoder.Encoder
 				var texelPos = (float)F32ToF16(Vector3.Dot(pixels[i].ToVector3(), blockDir));
 				var texelIndex = ComputeIndex4(texelPos, endPoint0Pos, endPoint1Pos);
 
-				var beta = Math.Clamp(texelIndex / 15.0f, 0f, 1f);
+				var beta = MathPolyfills.Clamp(texelIndex / 15.0f, 0f, 1f);
 				var alpha = 1.0f - beta;
 
 				var texelF16 = F32ToF16(pixels[i].ToVector3());
@@ -131,7 +132,7 @@ namespace BCnEncoder.Encoder
 					var texelPos = (float)F32ToF16(Vector3.Dot(pixels[i].ToVector3(), blockDir));
 					var texelIndex = ComputeIndex3(texelPos, endPoint0Pos, endPoint1Pos);
 
-					var beta = Math.Clamp(texelIndex / 7.0f, 0f, 1f);
+					var beta = MathPolyfills.Clamp(texelIndex / 7.0f, 0f, 1f);
 					var alpha = 1.0f - beta;
 
 					var texelF16 = F32ToF16(pixels[i].ToVector3());

@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using BCnEncoder.Encoder.Bptc;
+using BCnEncoder.Shared.Polyfills;
 
 namespace BCnEncoder.Shared
 {
@@ -20,7 +21,7 @@ namespace BCnEncoder.Shared
 						p30 = p31 = p32 = p33 = fillColor;
 		}
 		
-		public Span<ColorRgba32> AsSpan => MemoryMarshal.CreateSpan(ref p00, 16);
+		public Span<ColorRgba32> AsSpan => MemoryMarshalPolyfills.CreateSpan(ref p00, 16);
 
 		public ColorRgba32 this[int x, int y]
 		{
@@ -157,7 +158,7 @@ namespace BCnEncoder.Shared
 						p30 = p31 = p32 = p33 = fillColor;
 		}
 		
-		public Span<ColorRgbFloat> AsSpan => MemoryMarshal.CreateSpan(ref p00, 16);
+		public Span<ColorRgbFloat> AsSpan => MemoryMarshalPolyfills.CreateSpan(ref p00, 16);
 
 		public ColorRgbFloat this[int x, int y]
 		{
@@ -244,7 +245,7 @@ namespace BCnEncoder.Shared
 		public (int, int, int) p01, p11, p21, p31;
 		public (int, int, int) p02, p12, p22, p32;
 		public (int, int, int) p03, p13, p23, p33;
-		public Span<(int, int, int)> AsSpan => MemoryMarshal.CreateSpan(ref p00, 16);
+		public Span<(int, int, int)> AsSpan => MemoryMarshalPolyfills.CreateSpan(ref p00, 16);
 
 		public (int, int, int) this[int x, int y]
 		{
@@ -279,7 +280,7 @@ namespace BCnEncoder.Shared
 		public ColorYCbCr p01, p11, p21, p31;
 		public ColorYCbCr p02, p12, p22, p32;
 		public ColorYCbCr p03, p13, p23, p33;
-		public Span<ColorYCbCr> AsSpan => MemoryMarshal.CreateSpan(ref p00, 16);
+		public Span<ColorYCbCr> AsSpan => MemoryMarshalPolyfills.CreateSpan(ref p00, 16);
 
 		public ColorYCbCr this[int x, int y]
 		{

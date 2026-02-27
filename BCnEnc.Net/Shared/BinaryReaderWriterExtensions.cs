@@ -1,4 +1,5 @@
-﻿using System;
+using BCnEncoder.Shared.Polyfills;
+using System;
 using System.IO;
 using System.Runtime.CompilerServices;
 

@@ -1,4 +1,5 @@
-﻿using System;
+using BCnEncoder.Shared.Polyfills;
+using System;
 using System.Numerics;
 
 namespace BCnEncoder.Shared
@@ -1241,7 +1242,7 @@ namespace BCnEncoder.Shared
 
 		private static float PivotXyz(float n)
 		{
-			var i = MathF.Cbrt(n);
+			var i = MathFPolyfills.Cbrt(n);
 			return n > 0.008856f ? i : 7.787f * n + 16 / 116f;
 		}
 	}

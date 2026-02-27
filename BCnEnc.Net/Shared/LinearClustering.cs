@@ -1,3 +1,4 @@
+using BCnEncoder.Shared.Polyfills;
 using System;
 using System.Collections.Generic;
 
@@ -155,7 +156,7 @@ namespace BCnEncoder.Shared
 
 				clusterCenters.CopyTo(previousCenters);
 
-				Array.Fill(clusterIndices, -1);
+				ArrayPolyfills.Fill(clusterIndices, -1);
 
 				// Find closest cluster for pixels
 				for (var j = 0; j < clusters; j++)
@@ -235,7 +236,7 @@ namespace BCnEncoder.Shared
 
 				clusterCenters.CopyTo(previousCenters);
 
-				Array.Fill(clusterIndices, -1);
+				ArrayPolyfills.Fill(clusterIndices, -1);
 
 				// Find closest cluster for pixels
 				for (var j = 0; j < clusters; j++)
@@ -436,7 +437,7 @@ namespace BCnEncoder.Shared
 			var adjacentLabel = 0;
 			var newLabels = new int[oldLabels.Length];
 			var usedLabels = new bool[clusters];
-			Array.Fill(newLabels, -1);
+			ArrayPolyfills.Fill(newLabels, -1);
 
 			for (var y = 0; y < height; ++y)
 			{

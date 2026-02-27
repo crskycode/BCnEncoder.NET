@@ -1,4 +1,5 @@
 using System;
+using BCnEncoder.Shared.Polyfills;
 using CommunityToolkit.HighPerformance;
 
 namespace BCnEncoder.Shared
